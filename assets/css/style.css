@@ -1,0 +1,16 @@
+body {
+  background: url('../images/Seinfeld2.jpg');
+
+
+}
+
+h1, h2 {
+
+text-align: center;
+}
+
+.container {
+
+	box-sizing: border-box;
+	margin: 0 auto 0 auto;
+}
