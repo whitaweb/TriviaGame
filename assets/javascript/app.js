@@ -1,4 +1,13 @@
+
+
+
 $(document).ready(function(){
+
+// The only way I could get the end container to hide. 
+	$("#endresults").hide(); 
+	$("#questions").hide();
+	$("#finished").hide();
+
 
 
 
@@ -12,19 +21,13 @@ var unansweredCount = 0;
     var number = 30;
     var intervalId;
 
-$("#start").on("click", function() {
+    // Click function for start button. 30 Second countdown. 
 
-    	Countdown();
-
-    function Countdown() {
+function Countdown() {
       intervalId = setInterval(decrement, 1000);
+    };
 
-
-
-    }
-
-    });
-
+    // Sets coundtown to decrement by 1 second. 
     function decrement() {
 
       number--;
@@ -38,17 +41,49 @@ $("#start").on("click", function() {
         
         stop();
 
-        alert("Time Up!");
+        QCheck();
+
+        $("#endresults").show();
+
       }
-    }
+    };
 
     function stop() {
 
       
       clearInterval(intervalId);
-    }
+    };
+
+
+
+$("#start").on("click", function() {
+
+	$("#questions").show();
+
+	$("#endresults").hide();
+
+	$("#finished").show();
+
+    	Countdown();
+    
+
+    });
+
+$("#finished").on("click", function(){
+
+    	stop();
+
+    	QCheck();
+
+    	$("#endresults").show();
+    	$("questions").hide(); 
+    	
+
+    });
+    
 
      
+     // Collect user answers. Use if else statement to log answer to variable. 
      function QCheck () {
 
      	var Q1 = $('input:radio[name="q1"]:checked').val();
@@ -66,7 +101,7 @@ $("#start").on("click", function() {
 			correctCount++;
 		}
 		else{
-			wrongCount++;
+			incorrectCount++;
 		}
 
 		if(Q2 == undefined){
@@ -76,7 +111,7 @@ $("#start").on("click", function() {
 			correctCount++;
 		}
 		else{
-			wrongCount++;
+			incorrectCount++;
 		}
 
 		if(Q3 == undefined){
@@ -86,7 +121,7 @@ $("#start").on("click", function() {
 			correctCount++;
 		}
 		else{
-			wrongCount++;
+			incorrectCount++;
 		}
 
 		if(Q4 == undefined){
@@ -96,7 +131,7 @@ $("#start").on("click", function() {
 			correctCount++;
 		}
 		else{
-			wrongCount++;
+			incorrectCount++;
 		}
 
 		if(Q5 == undefined){
@@ -106,11 +141,21 @@ $("#start").on("click", function() {
 			correctCount++;
 		}
 		else{
-			wrongCount++;
+			incorrectCount++;
 		}
 
-		console.log(QCheck);
-     }
+     };
+
+
+     QCheck();
+
+     $('#correctanswers').html(correctCount);
+		$('#wronganswers').html(incorrectCount);
+		$('#unanswered').html(unansweredCount);
+
+
+		
+		
 
 
   });
