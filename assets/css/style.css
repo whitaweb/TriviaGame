@@ -1,6 +1,8 @@
 body {
   background: url('../images/Seinfeld2.jpg');
 
+  color: black;
+
 
 
 }
@@ -10,9 +12,24 @@ h1, h2 {
 text-align: center;
 }
 
-.container {
+#questions {
 
 	box-sizing: border-box;
-	width: 700px 
-	margin: 0 auto !Important;
+	margin: auto;
+    width: 50%;
+    border: 3px;
+    border-color: #DB0D36;
+    padding: 10px;
+    background-color: gold;
+}
+
+#endresults {
+
+	box-sizing: border-box;
+	margin: auto;
+    width: 50%;
+    border: 3px;
+    border-color: #DB0D36;
+    padding: 10px;
+    background-color: gold;
 }

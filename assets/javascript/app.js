@@ -44,6 +44,7 @@ function Countdown() {
         QCheck();
 
         $("#endresults").show();
+        $("#questions").hide();
 
       }
     };
@@ -76,14 +77,14 @@ $("#finished").on("click", function(){
     	QCheck();
 
     	$("#endresults").show();
-    	$("questions").hide(); 
+    	$("#questions").hide(); 
     	
 
     });
     
 
      
-     // Collect user answers. Use if else statement to log answer to variable. 
+     // Collect user answers. Use if else statement to log answer to count variables. 
      function QCheck () {
 
      	var Q1 = $('input:radio[name="q1"]:checked').val();
@@ -92,7 +93,12 @@ $("#finished").on("click", function(){
 		var Q4 = $('input:radio[name="q4"]:checked').val();
 		var Q5 = $('input:radio[name="q5"]:checked').val();
 
-
+		// if($('input:radio[name="q1"]:checked').val() = "Schnapps"){
+		// 	correctCount++;
+		// }
+		// else{
+		// 	incorrectCount++;
+		// }
 
 		if(Q1 == undefined){
 			unansweredCount++;
@@ -107,7 +113,7 @@ $("#finished").on("click", function(){
 		if(Q2 == undefined){
 			unansweredCount++;
 		}
-		else if(Q2 == "Toxic Envelops"){
+		else if(Q2 == "Toxic Envelopes"){
 			correctCount++;
 		}
 		else{
@@ -149,7 +155,10 @@ $("#finished").on("click", function(){
 
      QCheck();
 
-     $('#correctanswers').html(correctCount);
+     $('#questions').hide();
+
+     
+     	$('#correctanswers').html(correctCount);
 		$('#wronganswers').html(incorrectCount);
 		$('#unanswered').html(unansweredCount);
 
